@@ -245,9 +245,8 @@ button.secondary:hover {
 }
 
 /* LINKS */
-.projeto-card a,
-#contato a {
-    color: var(--text);
+.projeto-card a {
+    color: var(--accent);
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
@@ -260,17 +259,56 @@ button.secondary:hover {
     border: 1px solid var(--accent);
 }
 
-.projeto-card a:hover,
-#contato a:hover {
+#contato a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    padding: 12px 20px;
+    border-radius: var(--border-radius);
+    background: rgba(60, 166, 166, 0.1);
+    border: 1px solid var(--accent);
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.projeto-card a:hover {
     background: var(--accent);
     color: var(--background);
     transform: translateY(-1px);
 }
 
+#contato a:hover {
+    background: var(--accent);
+    color: var(--background);
+    transform: translateY(-2px);
+}
+
 /* CONTATO */
+#contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contato h2 {
+    width: 100%;
+    margin-bottom: var(--spacing-large);
+}
+
+#contato-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-medium);
+    width: 100%;
+    max-width: 800px;
+}
+
 #contato p {
-    margin-bottom: var(--spacing-small);
-    font-size: 1.1rem;
+    margin-bottom: 0;
+    width: 100%;
 }
 
 /* RESPONSIVIDADE */
@@ -284,8 +322,8 @@ button.secondary:hover {
     section {
         padding: var(--spacing-medium) var(--spacing-small);
     }
-    .projetos-principais > div,
-    .outros-projetos > div {
+    .projetos-principais,
+    .outros-projetos {
         grid-template-columns: 1fr;
     }
     h2 {
@@ -293,5 +331,8 @@ button.secondary:hover {
     }
     h3 {
         font-size: 1.5rem;
+    }
+    #contato-links {
+        grid-template-columns: 1fr;
     }
 }
