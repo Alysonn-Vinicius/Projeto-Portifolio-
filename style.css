@@ -1,0 +1,291 @@
+:root {
+    --text: #EEEEEC;
+    --background: #012E40;
+    --primary: #024959;
+    --secondary: #026773;
+    --accent: #3CA6A6;
+    --spacing-large: 32px;
+    --spacing-medium: 24px;
+    --spacing-small: 12px;
+    --border-radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--background) 0%, #001a23 100%);
+    color: var(--text);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+/* CONTAINER GERAL */
+section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-large) var(--spacing-medium);
+    text-align: center;
+}
+
+/* HERO MAIS IMPACTANTE */
+#hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(60, 166, 166, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-small);
+    letter-spacing: -0.02em;
+}
+
+#hero p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: var(--spacing-large);
+    opacity: 0.9;
+}
+
+/* SEPARAÇÃO ENTRE SEÇÕES */
+section:not(#hero) {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: var(--spacing-large);
+}
+
+/* TÍTULOS */
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-medium);
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-medium);
+    color: var(--accent);
+}
+
+h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* PARÁGRAFOS */
+#sobre p {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-small) auto;
+    font-size: 1.1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* LISTAS MAIS REFINADAS */
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-small);
+    list-style: none;
+}
+
+li {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    color: var(--text);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* BOTÕES */
+button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--text);
+    border: none;
+    padding: var(--spacing-small) var(--spacing-large);
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+button.secondary {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+}
+
+button.secondary:hover {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+}
+
+/* PROJETOS EM GRID */
+.projetos-principais,
+.outros-projetos {
+    margin-top: var(--spacing-large);
+}
+
+.projetos-principais,
+.outros-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-small);
+    align-items: start;
+}
+
+.projetos-principais h3,
+.outros-projetos h3 {
+    grid-column: 1 / -1;
+    margin-bottom: var(--spacing-small);
+}
+
+/* CARDS ELEGANTE */
+.projeto-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: var(--border-radius);
+    text-align: left;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.projeto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent);
+}
+
+.projeto-card h4 {
+    margin-bottom: 8px;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+.projeto-card p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.projeto-card strong {
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+/* LINKS */
+.projeto-card a,
+#contato a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+    display: inline-block;
+    margin-top: var(--spacing-small);
+    padding: 8px 16px;
+    border-radius: 4px;
+    background: rgba(60, 166, 166, 0.1);
+    border: 1px solid var(--accent);
+}
+
+.projeto-card a:hover,
+#contato a:hover {
+    background: var(--accent);
+    color: var(--background);
+    transform: translateY(-1px);
+}
+
+/* CONTATO */
+#contato p {
+    margin-bottom: var(--spacing-small);
+    font-size: 1.1rem;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    #hero p {
+        font-size: 1.1rem;
+    }
+    section {
+        padding: var(--spacing-medium) var(--spacing-small);
+    }
+    .projetos-principais > div,
+    .outros-projetos > div {
+        grid-template-columns: 1fr;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+    }
+}
