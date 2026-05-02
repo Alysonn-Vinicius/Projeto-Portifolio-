@@ -129,11 +129,13 @@ li {
     font-size: 1rem;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    cursor: pointer;
 }
 
 li:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 /* BOTÕES */
@@ -161,6 +163,7 @@ button::before {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s;
+    cursor: pointer;
 }
 
 button:hover::before {
@@ -170,6 +173,8 @@ button:hover::before {
 button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    color: #fff;
 }
 
 button.secondary {
@@ -178,6 +183,7 @@ button.secondary {
 
 button.secondary:hover {
     background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+    color: #fff;
 }
 
 /* PROJETOS EM GRID */
@@ -241,7 +247,7 @@ button.secondary:hover {
 /* LINKS */
 .projeto-card a,
 #contato a {
-    color: var(--accent);
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
